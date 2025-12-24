@@ -56,7 +56,7 @@ public class PatientList {
 
     }
 
-    public void printList() {
+    public void printList() { //print the list.
         Node temp = root;
         while (temp != null) {
             System.out.println(temp.data);
