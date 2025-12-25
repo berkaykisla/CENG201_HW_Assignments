@@ -1,30 +1,30 @@
 public class PatientList {
-    Node root;
+    Node head; //first node of the list.
 
-    public void addPatient(Patient p) {
+    public void addPatient(Patient p) { //add a patient end of the list.
         Node nNode = new Node(p);
-        if (root == null) {
-            root = nNode;
+        if (head == null) {
+            head = nNode;
             return;
 
         }
-        Node current = root;
+        Node current = head;
         while (current.next != null) {
             current = current.next;
         }
         current.next = nNode;
     }
 
-    public void removePatient(int id) {
-        if (root == null) {
+    public void removePatient(int id) { //remove patient from the list by id.
+        if (head == null) {
             System.out.println("This list is empty");
             return;
         }
-        if (root.data.id == id) {
-            root = root.next;
+        if (head.data.id == id) {
+            head = head.next;
             return;
         }
-        Node temp = root;
+        Node temp = head;
         while (temp.next != null && temp.next.data.id == id) {
             temp = temp.next;
         }
@@ -33,14 +33,14 @@ public class PatientList {
         }
     }
 
-    public Patient findPatient(int id) {
-        if (root == null) {
+    public Patient findPatient(int id) { //find and return patient's id.
+        if (head == null) {
             System.out.println("This list is empty");
             return null;
 
         }
 
-        Node temp = root;
+        Node temp = head;
         while (temp != null) {
             if (temp.data.id==id) {
                 System.out.println("Patient found: " + temp.data);
@@ -57,7 +57,7 @@ public class PatientList {
     }
 
     public void printList() { //print the list.
-        Node temp = root;
+        Node temp = head;
         while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
