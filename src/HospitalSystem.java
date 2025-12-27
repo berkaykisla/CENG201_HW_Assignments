@@ -14,6 +14,13 @@ public class HospitalSystem {
     public void addingPatient(Patient p){
         ptlist.addPatient(p);
         patientMap.put(p.id, p);
+
+        System.out.println(
+                "Added Patient -> ID: " + p.id +
+                        ", Name: " + p.name +
+                        ", Age: " + p.age +
+                        ", Severity: " + p.severity
+        );
     }
 
     // add treatment request
