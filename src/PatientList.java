@@ -15,46 +15,49 @@ public class PatientList {
         current.next = nNode;
     }
 
+
     public void removePatient(int id) { //remove patient from the list by id.
         if (head == null) {
             System.out.println("This list is empty");
             return;
         }
+
         if (head.data.id == id) {
             head = head.next;
+            System.out.println("Patient ID: " + id + " removed");
             return;
         }
+
         Node temp = head;
-        while (temp.next != null && temp.next.data.id == id) {
+
+        while (temp.next != null && temp.next.data.id != id) {
             temp = temp.next;
         }
-        if  (temp.next == null) {
+
+        if (temp.next != null) {
             temp.next = temp.next.next;
+            System.out.println("Patient ID: " + id + " removed");
+        } else {
+            System.out.println("Patient not found");
         }
     }
 
-    public Patient findPatient(int id) { //find and return patient's id.
-        if (head == null) {
-            System.out.println("This list is empty");
-            return null;
 
-        }
-
+    public Patient findPatient(int id) {
         Node temp = head;
+
         while (temp != null) {
-            if (temp.data.id==id) {
+            if (temp.data.id == id) {
                 System.out.println("Patient found: " + temp.data);
                 return temp.data;
             }
-
             temp = temp.next;
-
         }
-        System.out.println("The patient ID number could not be found for this patient.");
+
+        System.out.println("Patient not found");
         return null;
-
-
     }
+
 
     public void printList() { //print the list.
         Node temp = head;
